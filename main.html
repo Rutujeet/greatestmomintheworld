@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greatest Mom in the World</title>
+  <!-- Serif font -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fcfaf5;
+      --text: #2e2e2e;
+      --primary: #7f5f3d;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Libre Baskerville', serif;
+      line-height: 1.8;
+      padding: 2rem 1rem;
+    }
+    .container {
+      position: relative;
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+    #lang-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: 1px solid var(--primary);
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+    .lang-mr { display: none; }
+    h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+    h2 {
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+    }
+    .slideshow {
+      position: relative;
+      height: 350px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
+    .slide.active { opacity: 1; }
+    .slide img { width: 100%; height: 100%; object-fit: cover; }
+    .content p { margin-bottom: 1.5rem; text-indent: 1.2em; font-variant: small-caps; }
+    .social { margin-bottom: 2rem; font-size: 0.9rem; }
+    .social a { text-decoration: none; color: var(--text); margin-right: 1.5rem; }
+    footer { font-size: 0.9rem; text-align: right; font-style: italic; }
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      .container { padding: 1.5rem; max-width: 90%; }
+      .slideshow { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button id="lang-toggle"><span class="lang-en">मराठी</span><span class="lang-mr">English</span></button>
+
+    <h1><span class="lang-en">Greatest Mom in the World</span><span class="lang-mr">जगातील सर्वोत्तम आई</span></h1>
+    <h2><span class="lang-en">June 10</span><span class="lang-mr">जून 10</span></h2>
+
+    <div class="slideshow">
+      <div class="slide active"><img src="images/mom1.jpg" alt="mom, sis and me"></div>
+    </div>
+
+                <div class="content">
+      <p>
+        <span class="lang-en">i've known my mom since i was zero years old. she is quite dope.</span>
+        <span class="lang-mr">मी माझ्या आईला शून्य वर्षांचा असल्यापासून ओळखतो. ती खूप मस्त आहे.</span>
+      </p>
+    </div>
+
+    <div class="social">
+      <a href="https://www.youtube.com/@suchitasart2725"><strong><span class="lang-en">YouTube:</span><span class="lang-mr">YouTube:</span></strong> <span class="lang-en">20K+ subs</span><span class="lang-mr">[Subscribers placeholder] सदस्य</span></a>
+      <a href="https://www.instagram.com/suchitas_art_10/"><strong><span class="lang-en">Instagram:</span><span class="lang-mr">Instagram:</span></strong> <span class="lang-en">50K+ follows</span><span class="lang-mr">[Followers placeholder] अनुयायी</span></a>
+    </div>
+
+    <footer>
+      <span class="lang-en">yours, <b>golu</b></span>
+      <span class="lang-mr">तुझा, <b>गोलू</b></span>
+    </footer>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('lang-toggle');
+    toggle.addEventListener('click', () => {
+      document.querySelectorAll('.lang-en, .lang-mr').forEach(el => el.style.display = 'none');
+      const showClass = toggle.textContent.trim() === 'मराठी' ? 'lang-mr' : 'lang-en';
+      document.querySelectorAll('.' + showClass).forEach(el => el.style.display = 'inline');
+      toggle.textContent = showClass === 'lang-mr' ? 'English' : 'मराठी';
+    });
+  </script>
+</body>
+</html>
